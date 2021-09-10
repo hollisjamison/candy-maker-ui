@@ -11,6 +11,8 @@ const app = express()
 
 app.use(cors())
 
+app.use(express.static('client/build'))
+
 app.get('/api/manufacturers', getAllManufacturers)
 
 app.get('/api/manufacturers/:id', getManufacturerById)
