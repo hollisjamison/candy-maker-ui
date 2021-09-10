@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -38,3 +39,20 @@ const Search = () => {
 };
 
 export default Search
+=======
+import React, { useState } from 'react'
+
+const Search = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  return (
+    <div className="content">
+    <div className="title">Candy Makers</div>
+    <input className="searchBox" type="text" name="search" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} />
+    <div className="searchTerm">{searchTerm}</div>
+    </div>
+  )
+  }
+
+export default Search
+>>>>>>> Solution for part one
