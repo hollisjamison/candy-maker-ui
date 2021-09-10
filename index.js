@@ -21,8 +21,6 @@ app.get('/api/products/:id', getProductsById)
 
 app.all('*', (request, response) => response.sendFile(path.resolve(__dirname, 'client/build', 'index.html')))
 
-app.all('*', (request, response) => response.sendFile(path.resolve(__dirname, 'client/build', 'index.html')))
-
 app.listen(1337, () => {
   console.log('Listening on port 1337...') // eslint-disable-line no-console
 })
