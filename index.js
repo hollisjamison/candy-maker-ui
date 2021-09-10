@@ -1,7 +1,6 @@
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
-
 const {
   getAllManufacturers,
   getManufacturerById,
@@ -19,6 +18,8 @@ app.get('/api/manufacturers/:id', getManufacturerById)
 app.get('/api/products', getAllProducts)
 
 app.get('/api/products/:id', getProductsById)
+
+app.all('*', (request, response) => response.sendFile(path.resolve(__dirname, 'client/build', 'index.html')))
 
 app.all('*', (request, response) => response.sendFile(path.resolve(__dirname, 'client/build', 'index.html')))
 
