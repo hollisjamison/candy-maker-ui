@@ -17,7 +17,7 @@ const getProductsById = async (request, response) => {
     include: [{
       model: models.Manufacturers,
       attributes: ['id', 'name', 'country'],
-    }]
+    }],
   })
 
   return product
