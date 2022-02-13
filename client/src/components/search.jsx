@@ -4,10 +4,16 @@ import axios from 'axios';
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [manufacturers, setManufacturers] = useState([])
+  const [filteredManufactuers, setFilteredManufacturers] = (useState([]))
 
   useEffect(() => {
     fetchManufacturers()
   }, []) 
+
+  useEffect(() => {
+    let newFilteredManufacturers = manufacturers.filter(manufacturer => manufacturer.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    setFilteredManufacturers(newFilteredManufacturers)
+  }, [searchTerm, manufacturers])
 
   const fetchManufacturers = async () => {
     let {data} = await axios.get('http://localhost:1337/api/manufacturers')
@@ -26,7 +32,7 @@ const Search = () => {
         onChange={(event) => setSearchTerm(event.target.value)}
       />
       {
-        manufacturers.filter(manufacturer => manufacturer.name.toLowerCase().includes(searchTerm.toLowerCase())).map(manufacturer => {
+        filteredManufactuers.map(manufacturer => {
           return (
             <div>{manufacturer.name} ({manufacturer.country})</div>
           )
