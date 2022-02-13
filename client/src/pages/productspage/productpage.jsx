@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import "./productpage.css";
 import GoBack from "../../components/goback/goback";
@@ -14,7 +15,7 @@ export default (props) => {
   const [manufacturer, setManufacturer] = useState({});
   const [productList, setProductList] = useState([]);
 
-  const { manufacturerId } = props.match.params
+  const { manufacturerId } = useParams();
 
   const retrieveManufacturers = async (incomingId) => {
     if (!Number(incomingId)) return { id: 0, details: {}, products: [] }

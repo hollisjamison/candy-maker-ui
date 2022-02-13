@@ -1,6 +1,6 @@
 import "./App.css";
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import ErrorPage from './pages/errorpage/errorpage'
 import ManufacturersPage from './pages/manufacturerspage/manufacturerspage'
@@ -10,11 +10,11 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Switch>
-          <Route path="/products/:manufacturerId" component={ProductsPage} />
-          <Route exact path="/" component={ManufacturersPage} />
-          <Route path="*" component={ErrorPage} />
-        </Switch>
+        <Routes>
+          <Route path="/products/:manufacturerId" element={<ProductsPage/>} />
+          <Route exact path="/" element={<ManufacturersPage/>} />
+          <Route path="*" element={<ErrorPage/>} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
