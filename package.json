@@ -5,14 +5,14 @@
   "main": ".eslintrc.js",
   "scripts": {
     "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
-    "dev:server": "npm run dev:client:build && ./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
-    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./configs/sequelize.js",
+    "dev:server": "npm run dev:client:build && env-cmd nodemon index.js",
+    "dev:migrate": "env-cmd sequelize db:migrate --env development --config ./configs/sequelize.js",
     "dev:client": "cd client && npm start",
     "dev:client:build": "cd client && npm run build",
-    "lint": "./node_modules/.bin/eslint --format codeframe .",
-    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe .",
+    "lint": "eslint --format codeframe .",
+    "lint:fix": "eslint --fix --format codeframe .",
     "dev:client:test": "cd client && npm run test",
-    "dev:server:test": "./node_modules/.bin/env-cmd ./node_modules/.bin/mocha tests/**/*.test.js"
+    "dev:server:test": "env-cmd mocha tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
