@@ -9,6 +9,8 @@ const { getAllProducts, getProductsById } = require('./controllers/products')
 
 const app = express()
 
+app.use(express.static('client/build'))
+
 app.use(cors())
 
 app.get('/api/manufacturers', getAllManufacturers)
